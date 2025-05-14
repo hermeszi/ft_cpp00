@@ -6,38 +6,39 @@
 /*   By: myuen <myuen@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 16:53:29 by myuen             #+#    #+#             */
-/*   Updated: 2025/05/12 19:01:32 by myuen            ###   ########.fr       */
+/*   Updated: 2025/05/14 17:11:15 by myuen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef CONTACT_HPP
+#define CONTACT_HPP
+
 #include <iostream>
-
-using std::cin;
-using std::cout;
-using std::endl;
-
-using std::string;
 
 class Contact
 {
 private:
-    string  first_name;
-    string  last_name; 
-    string  nickname;
-    string  number;
-    string  darkest_secret;
-public:
-    Contact(void);
-    ~Contact();
-    int set_first_name(string user_input);
-    int set_last_name(string user_input);
-    int set_nickname(string user_input);
-    int set_number(string user_input);
-    int set_darkest_secret(string user_input);
-    string get_first_name(void);
-    string get_last_name(void);
-    string get_nickname(void);
-    string get_number(void);
-    string get_darkest_secret(void);
+	std::string first_name;
+	std::string last_name;
+	std::string nickname;
+	std::string number;
+	std::string darkest_secret;
 
+public:
+	Contact();
+	~Contact();
+
+	int set_first_name(std::string input);
+	int set_last_name(std::string input);
+	int set_nickname(std::string input);
+	int set_number(std::string input);
+	int set_darkest_secret(std::string input);
+
+	std::string get_first_name() const;
+	std::string get_last_name() const;
+	std::string get_nickname() const;
+	std::string get_number() const;
+	std::string get_darkest_secret() const;
 };
+
+#endif

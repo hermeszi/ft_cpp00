@@ -6,11 +6,16 @@
 /*   By: myuen <myuen@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 16:53:29 by myuen             #+#    #+#             */
-/*   Updated: 2025/05/12 19:28:11 by myuen            ###   ########.fr       */
+/*   Updated: 2025/05/14 20:12:18 by myuen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Contact.hpp"
+
+using std::string;
+using std::endl;
+using std::cout;
+using std::cin;
 
 Contact::Contact(void)
 {
@@ -92,23 +97,23 @@ int Contact::set_darkest_secret(string user_input)
 	}
 }
 
-string Contact::get_first_name(void)
+string Contact::get_first_name(void) const
 {
 	return (first_name);
 }
-string Contact::get_last_name(void)
+string Contact::get_last_name(void) const
 {
 	return (last_name);
 }
-string Contact::get_nickname(void)
+string Contact::get_nickname(void) const
 {
 	return (nickname);
 }
-string Contact::get_number(void)
+string Contact::get_number(void) const
 {
 	return (number);
 }
-string Contact::get_darkest_secret(void)
+string Contact::get_darkest_secret(void) const
 {
 	return (darkest_secret);
 }
