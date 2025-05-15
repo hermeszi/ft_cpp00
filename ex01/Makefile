@@ -6,7 +6,7 @@
 #    By: myuen <myuen@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/11 16:53:29 by myuen             #+#    #+#              #
-#    Updated: 2025/05/14 17:20:50 by myuen            ###   ########.fr        #
+#    Updated: 2025/05/15 15:45:39 by myuen            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,9 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinc
 
 # Sources and objects
 SRCS =	main.cpp \
-		src/Contact.cpp src/PhoneBook.cpp
+		src/Contact.cpp \
+		src/PhoneBook.cpp \
+		src/ui_helper.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 # Default rule
@@ -29,7 +31,16 @@ $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 # Object compilation
-src/%.o: src/%.cpp inc/Contact.hpp inc/PhoneBook.hpp
+src/Contact.o: src/Contact.cpp inc/Contact.hpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+src/PhoneBook.o: src/PhoneBook.cpp inc/PhoneBook.hpp inc/Contact.hpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+src/ui_helper.o: src/ui_helper.cpp inc/ui_helper.hpp inc/PhoneBook.hpp inc/Contact.hpp 
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+main.o: main.cpp inc/PhoneBook.hpp inc/Contact.hpp inc/ui_helper.hpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:

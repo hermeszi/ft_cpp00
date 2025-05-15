@@ -6,7 +6,7 @@
 /*   By: myuen <myuen@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 16:53:29 by myuen             #+#    #+#             */
-/*   Updated: 2025/05/14 17:11:15 by myuen            ###   ########.fr       */
+/*   Updated: 2025/05/15 16:41:49 by myuen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class Contact
 {
 private:
-	std::string first_name;
+	std::string	first_name;
 	std::string last_name;
 	std::string nickname;
 	std::string number;
@@ -28,13 +28,15 @@ public:
 	Contact();
 	~Contact();
 
-	int set_first_name(std::string input);
+	void print_contact (void) const;
+	
+	int	set_first_name(std::string input);
 	int set_last_name(std::string input);
 	int set_nickname(std::string input);
 	int set_number(std::string input);
 	int set_darkest_secret(std::string input);
 
-	std::string get_first_name() const;
+	std::string	get_first_name() const;
 	std::string get_last_name() const;
 	std::string get_nickname() const;
 	std::string get_number() const;

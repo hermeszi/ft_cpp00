@@ -6,7 +6,7 @@
 /*   By: myuen <myuen@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 16:53:29 by myuen             #+#    #+#             */
-/*   Updated: 2025/05/14 20:12:18 by myuen            ###   ########.fr       */
+/*   Updated: 2025/05/15 17:05:22 by myuen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int Contact::set_last_name(string user_input)
 		return (0);
 	}
 }
-int Contact::set_nickname(string user_input)
+int	Contact::set_nickname(string user_input)
 {
 	if (user_input.length() < 1)
 	{
@@ -116,4 +116,20 @@ string Contact::get_number(void) const
 string Contact::get_darkest_secret(void) const
 {
 	return (darkest_secret);
+}
+
+void	 Contact::print_contact(void) const
+{
+	cout	<< "\n"
+			<< "    First Name: "
+			<< first_name <<		"\n"
+			<< "     Last Name: "
+			<< last_name <<			"\n"
+			<< "      Nickname: "
+			<< nickname <<			"\n"
+			<< "        Number: "
+			<< number << 			"\n"
+			<< "Darkest Secret: "
+			<< darkest_secret <<	"\n"
+			<< endl;
 }

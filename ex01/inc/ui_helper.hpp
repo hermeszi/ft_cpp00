@@ -1,41 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   ui_helper.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: myuen <myuen@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 16:53:29 by myuen             #+#    #+#             */
-/*   Updated: 2025/05/15 17:05:48 by myuen            ###   ########.fr       */
+/*   Updated: 2025/05/15 16:55:50 by myuen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
+#ifndef UI_HELPER_HPP
+#define UI_HELPER_HPP
 
-#include <iomanip>
+#include <cstdlib>
+#include <cstdio>
 #include <iostream>
+#include <sstream>
+#include <string>
+#include <iomanip>
 
 #include "Contact.hpp"
+#include "PhoneBook.hpp"
 
-class PhoneBook
-{
-private:
-	static const int	MAX_CONTACTS = 8;
-	Contact				contacts[MAX_CONTACTS];
-	int					count;
-	
-	std::string truncate(const std::string& str) const;
-public:
-	PhoneBook();
-	~PhoneBook();
-
-	void	add_contact(Contact new_contact);
-	void	print_all () const;
-	void	print_a_contact (int index) const;
-	int 	get_count(void) const;
-	
-};
+bool		string_to_int_ok(const std::string& input, int& result);
+void		show_main_menu(void);
+std::string get_input(const std::string& prompt);
+int			add_contact_ok(Contact& new_contact);
+int			search_contact_ok(PhoneBook& phonebook);
+int			main_menu_selection(std::string command, PhoneBook& phonebook);
 
 #endif
-
