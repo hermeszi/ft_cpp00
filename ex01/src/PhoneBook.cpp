@@ -6,7 +6,7 @@
 /*   By: myuen <myuen@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 16:53:29 by myuen             #+#    #+#             */
-/*   Updated: 2025/05/15 19:24:50 by myuen            ###   ########.fr       */
+/*   Updated: 2025/05/16 15:33:46 by myuen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,23 +48,33 @@ void PhoneBook::add_contact(Contact new_contact)
 void PhoneBook::print_all(void) const
 {
 	int	total = (count < MAX_CONTACTS) ? count : MAX_CONTACTS;
+	int	i = 0;
 	
-	cout	<< std::right
+	for (i=0; i<45; i++)
+		cout << "_";
+	cout << endl;
+		
+	cout	<< "|"
+			<< std::right
 			<< setw(10) << "Index"			<< "|"
 			<< setw(10) << "First Name"	<< "|"
 			<< setw(10) << "Last Name" 	<< "|"
 			<< setw(10) << "Nickname"  	<< "|"
 			<< "\n";
 
-	for (int i = 0; i < total; ++i)
+	for (i=0; i < total; ++i)
 	{
-		cout	<< std::right
+		cout	<< "|"
+				<< std::right
 				<< setw(10) << i + 1 << "|"
 				<< setw(10) << truncate(contacts[i].get_first_name()) << "|"
 				<< setw(10) << truncate(contacts[i].get_last_name()) << "|"
 				<< setw(10) << truncate(contacts[i].get_nickname()) << "|"
 				<< "\n";
 	}
+	
+	for (i=0; i<45; i++)
+		cout << "_";
 	cout << endl;
 }
 
@@ -75,7 +85,7 @@ int PhoneBook::get_count(void) const
 
 void PhoneBook::print_a_contact(int index) const
 {
-	if (index <= count-1)
+	if (index >= 0 && index <= count-1)
 	{
 		contacts[index].print_contact();
 	}

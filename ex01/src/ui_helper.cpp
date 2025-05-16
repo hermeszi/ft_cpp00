@@ -6,7 +6,7 @@
 /*   By: myuen <myuen@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 16:53:29 by myuen             #+#    #+#             */
-/*   Updated: 2025/05/15 20:00:57 by myuen            ###   ########.fr       */
+/*   Updated: 2025/05/16 15:27:23 by myuen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,18 @@ using std::string;
 using std::getline;
 using std::istringstream;
 
-bool	string_to_int_ok(string& input, int& result)
+bool	string_to_int(string& input, int& result)
 {
     istringstream	iss(input);
 	char			extra;
 
     if (!(iss >> result))
 	{
-		//cout << "SS FAIL" << endl;
-        return false;
+        return false; //cout << "SS FAIL" << endl;
 	}
     if (iss >> extra)
 	{
-		//cout << "SS EXTRA CHARACTERS" << endl;
-        return false;
+        return false; //cout << "SS EXTRA CHARACTERS" << endl;
 	}
     return true;
 }
@@ -56,7 +54,7 @@ string	get_input(const string& prompt)
 		cout << prompt;
 		if (!std::getline(std::cin, user_input))
 		{
-			cout << "\n--(Ctrl+D ) EOF received--" << std::endl;
+			cout << "\n--(Ctrl+D) EOF received--" << std::endl;
 			cin.clear();
 			clearerr(stdin);
 			return ("");
@@ -69,65 +67,67 @@ string	get_input(const string& prompt)
 		return (user_input);
 	}
 }
-int	add_contact_ok(Contact& new_contact)
+int	add_contact(Contact& new_contact)
 {
 	string	user_input;
 	
-
+	cout << "	▀▄▀▄▀▄ ADD ▄▀▄▀▄▀" << "\n";
 	while (true)
 	{
-		user_input = get_input("---------First Name--►");
+		user_input = get_input("------First👦Name--►");
 		if (user_input.empty())
-			return (0);
+			return (1);
 		if (new_contact.set_first_name(user_input))
 			continue;
 		break;
 	}
 	while (true)
 	{
-		user_input = get_input("----------Last Name--►");
+		user_input = get_input("-------Last👧Name--►");
 		if (user_input.empty())
-			return (0);
+			return (1);
 		if (new_contact.set_last_name(user_input))
 			continue;
 		break;
 	}
 	while (true)
 	{
-		user_input = get_input("-----------Nickname--►");
+		user_input = get_input("-------👶Nickname--►");
 		if (user_input.empty())
-			return (0);
+			return (1);
 		if (new_contact.set_nickname(user_input))
 			continue;
 		break;
 	}
 	while (true)
 	{
-		user_input = get_input("----------🕻Number🕽--►");
+		user_input = get_input("---------🕻Number🕽--►");
 		if (user_input.empty())
-			return (0);
+			return (1);
 		if (new_contact.set_number(user_input))
 			continue;
 		break;
 	}
 	while (true)
 	{
-		user_input = get_input("----Darkest🦇Secret--►");
+		user_input = get_input("--Darkest🦇Secret--►");
 		if (user_input.empty())
-			return (0);
+			return (1);
 		if (new_contact.set_darkest_secret(user_input))
 			continue;
 		break;
 	}
 	cout << "... Input Received ..." << endl;
-	return (1);
+	return (0);
 }
 
-int search_contact_ok(PhoneBook& phonebook)
+int search_contact(PhoneBook& phonebook)
 {
 	string  user_input;
 	int		converted_input;
 	
+	cout << "	▀▄▀▄▀▄ SEARCH ▄▀▄▀▄▀" << "\n";
+	cout << endl;
 	phonebook.print_all();
 	while (true)
 	{
@@ -136,7 +136,7 @@ int search_contact_ok(PhoneBook& phonebook)
 			return (0);
 		if (user_input == "EXIT")
 			return (1);
-		if (string_to_int_ok(user_input, converted_input))
+		if (string_to_int(user_input, converted_input))
 		{
 			if (converted_input > phonebook.get_count() || converted_input < 1)
 			{
@@ -168,20 +168,16 @@ int	main_menu_selection(string command, PhoneBook& phonebook)
 	}
 	else if (command == "ADD")
 	{
-		if (add_contact_ok(new_contact))
+		if (add_contact(new_contact) == 0)
 		{
 			phonebook.add_contact(new_contact);
-			return (0);
 		}
-		else
-			return (0);		
+		return (0);		
 	}
 	else if (command == "SEARCH")
 	{
-		if (search_contact_ok(phonebook))
-			return (0);
-		else
-			return (0);
+		search_contact(phonebook);
+		return (0);
 	}
 	else if (command == "EXIT")
 	{

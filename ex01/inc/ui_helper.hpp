@@ -6,7 +6,7 @@
 /*   By: myuen <myuen@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 16:53:29 by myuen             #+#    #+#             */
-/*   Updated: 2025/05/15 18:36:22 by myuen            ###   ########.fr       */
+/*   Updated: 2025/05/16 15:11:10 by myuen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
 
-bool		string_to_int_ok(const std::string& input, int& result);
+bool		string_to_int(const std::string& input, int& result);
 void		show_main_menu(void);
 std::string get_input(const std::string& prompt);
 int			add_contact_ok(Contact& new_contact);
