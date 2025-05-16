@@ -6,10 +6,11 @@
 /*   By: myuen <myuen@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 16:53:29 by myuen             #+#    #+#             */
-/*   Updated: 2025/05/15 16:55:50 by myuen            ###   ########.fr       */
+/*   Updated: 2025/05/15 18:36:22 by myuen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #ifndef UI_HELPER_HPP
 #define UI_HELPER_HPP
 

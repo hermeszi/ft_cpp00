@@ -6,7 +6,7 @@
 /*   By: myuen <myuen@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 16:53:29 by myuen             #+#    #+#             */
-/*   Updated: 2025/05/15 17:05:22 by myuen            ###   ########.fr       */
+/*   Updated: 2025/05/15 19:49:13 by myuen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,16 @@ Contact::Contact(void)
 Contact::~Contact()
 {
 }
-
-int Contact::set_first_name(string user_input)
+bool	Contact::is_only_whitespace(const std::string& str) const
 {
-	if (user_input.length() < 1)
+    std::istringstream iss(str);
+    string temp;
+    return !(iss >> temp);
+}
+
+int		Contact::set_first_name(string user_input)
+{
+	if (user_input.length() < 1 || is_only_whitespace(user_input))
 	{
 		cout << "first name cannot be empty" << endl;
 		return (1);
@@ -39,9 +45,9 @@ int Contact::set_first_name(string user_input)
 	}
 }
 
-int Contact::set_last_name(string user_input)
+int		Contact::set_last_name(string user_input)
 {
-	if (user_input.length() < 1)
+	if (user_input.length() < 1 || is_only_whitespace(user_input))
 	{
 		cout << "last name cannot be empty" << endl;
 		return (1);
@@ -52,9 +58,9 @@ int Contact::set_last_name(string user_input)
 		return (0);
 	}
 }
-int	Contact::set_nickname(string user_input)
+int		Contact::set_nickname(string user_input)
 {
-	if (user_input.length() < 1)
+	if (user_input.length() < 1 || is_only_whitespace(user_input))
 	{
 		cout << "nickname cannot be empty" << endl;
 		return (1);
@@ -65,9 +71,9 @@ int	Contact::set_nickname(string user_input)
 		return (0);
 	}
 }
-int Contact::set_number(string user_input)
+int		Contact::set_number(string user_input)
 {
-	if (user_input.length() < 1)
+	if (user_input.length() < 1 || is_only_whitespace(user_input))
 	{
 		cout << "number cannot be empty" << endl;
 		return (1);
@@ -83,9 +89,9 @@ int Contact::set_number(string user_input)
 	number = user_input;
 	return (0);
 }
-int Contact::set_darkest_secret(string user_input)
+int		Contact::set_darkest_secret(string user_input)
 {
-	if (user_input.length() < 1)
+	if (user_input.length() < 1 || is_only_whitespace(user_input))
 	{
 		cout << "nickname cannot be empty" << endl;
 		return (1);
@@ -97,7 +103,7 @@ int Contact::set_darkest_secret(string user_input)
 	}
 }
 
-string Contact::get_first_name(void) const
+string	Contact::get_first_name(void) const
 {
 	return (first_name);
 }

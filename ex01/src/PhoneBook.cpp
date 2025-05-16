@@ -6,7 +6,7 @@
 /*   By: myuen <myuen@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 16:53:29 by myuen             #+#    #+#             */
-/*   Updated: 2025/05/15 17:06:08 by myuen            ###   ########.fr       */
+/*   Updated: 2025/05/15 19:24:50 by myuen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ void PhoneBook::add_contact(Contact new_contact)
 	
 	contacts[index] = new_contact;
 	count++;
-	cout << "<< Contact added at index " << index;
+	cout << "... Contact added at index " << index;
 	if (count > MAX_CONTACTS)
 		cout << " (overwriting)";
-	cout << " >>" <<std::endl;
+	cout << " ..." <<std::endl;
 }
 
 void PhoneBook::print_all(void) const

@@ -6,7 +6,7 @@
 /*   By: myuen <myuen@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 16:53:29 by myuen             #+#    #+#             */
-/*   Updated: 2025/05/15 17:22:12 by myuen            ###   ########.fr       */
+/*   Updated: 2025/05/15 20:00:57 by myuen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,23 @@ bool	string_to_int_ok(string& input, int& result)
 	char			extra;
 
     if (!(iss >> result))
+	{
+		//cout << "SS FAIL" << endl;
         return false;
+	}
     if (iss >> extra)
+	{
+		//cout << "SS EXTRA CHARACTERS" << endl;
         return false;
+	}
     return true;
 }
-
 void	show_main_menu(void)
 {
 	cout << "\n";
-	cout << "   ▀▄▀▄▀▄Main Menu▄▀▄▀▄▀" << "\n";
+	cout << "	▀▄▀▄▀▄Main Menu▄▀▄▀▄▀" << "\n";
 	cout << "\n";
-	cout << "▀▄▀▄Valid commands: ADD, SEARCH and EXIT▄▀▄▀";
+	cout << "▀▄▀▄Valid commands: ADD, SEARCH and EXIT▄▀▄▀" << "\n";
 	cout << endl;
 }
 
@@ -51,14 +56,14 @@ string	get_input(const string& prompt)
 		cout << prompt;
 		if (!std::getline(std::cin, user_input))
 		{
-			cout << "\n-(Ctrl+D received) input ended-" << std::endl;
+			cout << "\n--(Ctrl+D ) EOF received--" << std::endl;
 			cin.clear();
 			clearerr(stdin);
 			return ("");
 		}
 		if (user_input.length() < 1)
 		{
-			cout << "-field cannot be empty-" << "\n";
+			cout << "!-field cannot be empty-!" << "\n";
 			continue;
 		}
 		return (user_input);
@@ -98,7 +103,7 @@ int	add_contact_ok(Contact& new_contact)
 	}
 	while (true)
 	{
-		user_input = get_input("-----------📱Number--►");
+		user_input = get_input("----------🕻Number🕽--►");
 		if (user_input.empty())
 			return (0);
 		if (new_contact.set_number(user_input))
@@ -114,7 +119,7 @@ int	add_contact_ok(Contact& new_contact)
 			continue;
 		break;
 	}
-	cout << "<< Entry Ok >>" << endl;
+	cout << "... Input Received ..." << endl;
 	return (1);
 }
 
@@ -126,7 +131,7 @@ int search_contact_ok(PhoneBook& phonebook)
 	phonebook.print_all();
 	while (true)
 	{
-		user_input = get_input("-Select an index to display (EXIT to return)--►");
+		user_input = get_input("🖎 Select an index to display (EXIT to return)--►");
 		if (user_input.empty())
 			return (0);
 		if (user_input == "EXIT")
@@ -146,7 +151,7 @@ int search_contact_ok(PhoneBook& phonebook)
 		}
 		else
 		{
-			cout << "-Not a valid input-\n";
+			cout << "!-Not a valid input-!\n";
 			continue;
 		}		
 	}
@@ -184,7 +189,7 @@ int	main_menu_selection(string command, PhoneBook& phonebook)
 	}
 	else
 	{
-		cout << "🈲 Invalid Command 🈲" << "\n";
+		cout << "!-Invalid Command-!" << "\n";
 		cout << endl;
 		return (0);
 	}

@@ -6,7 +6,7 @@
 /*   By: myuen <myuen@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 16:53:29 by myuen             #+#    #+#             */
-/*   Updated: 2025/05/15 16:19:29 by myuen            ###   ########.fr       */
+/*   Updated: 2025/05/15 18:41:14 by myuen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,6 @@ int	main(int argc, char *argv[])
 		if (main_menu_selection(get_input("🖎 "), phonebook_1) != 0)
 			in_menu = 0;		
 	}
-	cout << "- Bye! -" << endl;
+	cout << "	👋 Bye! 👋" << endl;
 	return (0);
 }
