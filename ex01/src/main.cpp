@@ -6,7 +6,7 @@
 /*   By: myuen <myuen@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 16:53:29 by myuen             #+#    #+#             */
-/*   Updated: 2025/05/16 16:51:29 by myuen            ###   ########.fr       */
+/*   Updated: 2025/05/16 18:35:57 by myuen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ using std::endl;
 using std::string;
 using std::getline;
 
-#include "inc/Contact.hpp"
-#include "inc/PhoneBook.hpp"
-#include "inc/ui_helper.hpp"
+#include "../inc/Contact.hpp"
+#include "../inc/PhoneBook.hpp"
+#include "../inc/ui_helper.hpp"
 
 
 int	main(int argc, char *argv[])

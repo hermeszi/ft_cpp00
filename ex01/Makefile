@@ -6,45 +6,36 @@
 #    By: myuen <myuen@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/11 16:53:29 by myuen             #+#    #+#              #
-#    Updated: 2025/05/15 20:03:34 by myuen            ###   ########.fr        #
+#    Updated: 2025/05/16 18:35:11 by myuen            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# Program name
 NAME = phonebook
-
-# Compiler and flags
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinc -g
 
-# Sources and objects
-SRCS =	main.cpp \
-		src/Contact.cpp \
-		src/PhoneBook.cpp \
-		src/ui_helper.cpp
-OBJS = $(SRCS:.cpp=.o)
+SRC_DIR = src
+OBJ_DIR = obj
 
-# Default rule
+SRCS = $(SRC_DIR)/main.cpp \
+       $(SRC_DIR)/Contact.cpp \
+       $(SRC_DIR)/PhoneBook.cpp \
+       $(SRC_DIR)/ui_helper.cpp
+
+OBJS = $(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
+
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
-# Object compilation
-src/Contact.o: src/Contact.cpp inc/Contact.hpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
-
-src/PhoneBook.o: src/PhoneBook.cpp inc/PhoneBook.hpp inc/Contact.hpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
-
-src/ui_helper.o: src/ui_helper.cpp inc/ui_helper.hpp inc/PhoneBook.hpp inc/Contact.hpp 
-	$(CXX) $(CXXFLAGS) -c $< -o $@
-
-main.o: main.cpp inc/PhoneBook.hpp inc/Contact.hpp inc/ui_helper.hpp
+# Compile each .cpp to .o
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
+	@mkdir -p $(OBJ_DIR)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
+	rm -rf $(OBJ_DIR)
 
 fclean: clean
 	rm -f $(NAME)
