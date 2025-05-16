@@ -6,18 +6,16 @@
 /*   By: myuen <myuen@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 16:53:29 by myuen             #+#    #+#             */
-/*   Updated: 2025/05/15 18:41:14 by myuen            ###   ########.fr       */
+/*   Updated: 2025/05/16 16:51:29 by myuen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cstdlib>
 #include <cstdio>
-
 #include <iostream>
 using std::cout;
 using std::cin;
 using std::endl;
-
 #include <string>
 using std::string;
 using std::getline;

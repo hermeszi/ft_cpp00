@@ -6,12 +6,12 @@
 #    By: myuen <myuen@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/11 16:53:29 by myuen             #+#    #+#              #
-#    Updated: 2025/05/15 19:16:04 by myuen            ###   ########.fr        #
+#    Updated: 2025/05/16 16:52:27 by myuen            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Program name
-NAME = Account
+NAME = account
 
 # Compiler and flags
 CXX = c++
