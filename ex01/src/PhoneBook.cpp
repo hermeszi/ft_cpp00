@@ -6,7 +6,7 @@
 /*   By: myuen <myuen@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 16:53:29 by myuen             #+#    #+#             */
-/*   Updated: 2025/05/16 15:33:46 by myuen            ###   ########.fr       */
+/*   Updated: 2025/05/17 16:21:53 by myuen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,17 @@ string PhoneBook::truncate(const string& str) const
 }
 void PhoneBook::add_contact(Contact new_contact)
 {
-	int	index = count % MAX_CONTACTS;
+	size_t	index = count % MAX_CONTACTS;
 	
 	contacts[index] = new_contact;
 	count++;
-	cout << "... Contact added at index " << index;
+	cout << "... Contact added at index " << index + 1;
 	if (count > MAX_CONTACTS)
 		cout << " (overwriting)";
 	cout << " ..." <<std::endl;
+
+	if (count > MAX_CONTACTS * 100)
+    	count = MAX_CONTACTS + (count % MAX_CONTACTS);
 }
 
 void PhoneBook::print_all(void) const
@@ -83,10 +86,11 @@ int PhoneBook::get_count(void) const
 	return (count);
 }
 
-void PhoneBook::print_a_contact(int index) const
+void PhoneBook::print_a_contact(size_t index) const
 {
-	if (index >= 0 && index <= count-1)
+	if (index < count)
 	{
+		cout << "========== Index " << index + 1 << " ==========\n";
 		contacts[index].print_contact();
 	}
 }

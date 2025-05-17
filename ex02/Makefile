@@ -6,7 +6,7 @@
 #    By: myuen <myuen@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/11 16:53:29 by myuen             #+#    #+#              #
-#    Updated: 2025/05/16 16:52:27 by myuen            ###   ########.fr        #
+#    Updated: 2025/05/17 15:46:55 by myuen            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = account
 
 # Compiler and flags
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinc
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 # Sources and objects
 SRCS =	tests.cpp Account.cpp

@@ -6,7 +6,7 @@
 /*   By: myuen <myuen@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/11 16:53:29 by myuen             #+#    #+#             */
-/*   Updated: 2025/05/16 15:27:23 by myuen            ###   ########.fr       */
+/*   Updated: 2025/05/17 16:06:19 by myuen            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,7 +145,7 @@ int search_contact(PhoneBook& phonebook)
 			}
 			else
 			{
-				phonebook.print_a_contact(converted_input-1);
+				phonebook.print_a_contact(static_cast<size_t> (converted_input-1));
 				continue;
 			}
 		}

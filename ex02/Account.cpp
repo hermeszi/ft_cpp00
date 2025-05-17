@@ -80,7 +80,6 @@ void	Account::displayStatus(void) const
             << "withdrawals:" << _nbWithdrawals
             << endl;
 }
-
 void	Account::makeDeposit(int deposit)
 {
 	_displayTimestamp();
@@ -126,7 +125,6 @@ bool	Account::makeWithdrawal(int withdrawal)
 
 	return true;
 }
-
 int		Account::checkAmount(void) const
 {
 	return (_amount);
